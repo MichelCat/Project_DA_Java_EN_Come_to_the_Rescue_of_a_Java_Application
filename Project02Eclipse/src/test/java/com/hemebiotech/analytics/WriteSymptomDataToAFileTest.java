@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
 import main.java.com.hemebiotech.analytics.WriteSymptomDataToAFile;
 
 class WriteSymptomDataToAFileTest extends MethodsCommonToSymptoms {
-	String sourceFile = "src/test/resources/resultFile.txt";
-	String destinationFile = "src/test/resources/destinationReferenceFile.txt";
+	String resultFile = workDirectory + "resultFile.txt";
+	String destinationFile = referencesDirectory + "destinationFile.txt";
 
 	// ---------------------------------------------------------------------------------
 	// ---------------------------------------------------------------------------------
@@ -26,10 +26,10 @@ class WriteSymptomDataToAFileTest extends MethodsCommonToSymptoms {
 		List<String> listOfSourceSymptoms = getListOfWrittenSymptomsNormal();
 		
 		// Deletion of the old result file
-		var resultFilePath = Paths.get(sourceFile);
+		var resultFilePath = Paths.get(resultFile);
 		java.nio.file.Files.deleteIfExists(resultFilePath);
 		
-		var writingDestinationSymptoms = new WriteSymptomDataToAFile(sourceFile);
+		var writingDestinationSymptoms = new WriteSymptomDataToAFile(resultFile);
 		writingDestinationSymptoms.setSymptoms(listOfSourceSymptoms);
 		
 		// Test result file with reference file

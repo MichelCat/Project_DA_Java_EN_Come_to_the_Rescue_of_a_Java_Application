@@ -15,13 +15,12 @@ public class AnalyticsCounter {
 	 * @param args Unused
 	 */
 	public static void main(String[] args) {
-		/**
-		 * Production directory : ressource
-		 */
-		var ressourceDirectory = "src/main/resources/";
+		// Ressource directories
+		var referencesDirectory = "src/main/resources/references/";
+		var workDirectory = "src/main/resources/work/";
 		
 		// Reading Symptoms From Source File
-		var readingSourceSymptoms = new ReadSymptomDataFromFile(ressourceDirectory + "symptoms.txt");
+		var readingSourceSymptoms = new ReadSymptomDataFromFile(referencesDirectory + "symptoms.txt");
 		List<String> listOfSourceSymptoms = readingSourceSymptoms.getSymptoms();
 		
 		var treatsOccurrencesOfSymptoms = new CountsSymptomOccurrences();
@@ -31,7 +30,10 @@ public class AnalyticsCounter {
 		List<String> listOfDestinationSymptoms = treatsOccurrencesOfSymptoms.getListOfWrittenSymptoms(listOfSymptomOccurrences);
 		
 		// Writing symptoms in the result file
-		var writingDestinationSymptoms = new WriteSymptomDataToAFile(ressourceDirectory + "result.out");
+		var writingDestinationSymptoms = new WriteSymptomDataToAFile(workDirectory + "result.out");
 		writingDestinationSymptoms.setSymptoms(listOfDestinationSymptoms);
+		
+		// End
+		System.out.println("End");
 	}
 }

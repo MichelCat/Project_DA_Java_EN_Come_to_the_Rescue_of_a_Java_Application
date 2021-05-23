@@ -11,6 +11,9 @@ public abstract class MethodsCommonToSymptoms {
 	protected String elementCough = "cough";
 	protected String elementBlurredVision = "blurred vision";
 	
+	// Ressource directories
+	protected String referencesDirectory = "src/test/resources/references/";
+	protected String workDirectory = "src/test/resources/work/";
 
 	// ---------------------------------------------------------------------------------
 	// ---------------------------------------------------------------------------------

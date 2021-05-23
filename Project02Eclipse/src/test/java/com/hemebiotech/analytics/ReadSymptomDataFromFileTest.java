@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import main.java.com.hemebiotech.analytics.ReadSymptomDataFromFile;
 
 class ReadSymptomDataFromFileTest extends MethodsCommonToSymptoms {
-	String sourceFile = "src/test/resources/sourceReferenceFile.txt";
+	String sourceFile = referencesDirectory + "sourceFile.txt";
 
 	// ---------------------------------------------------------------------------------
 	// ---------------------------------------------------------------------------------
