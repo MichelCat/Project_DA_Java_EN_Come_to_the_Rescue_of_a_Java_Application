@@ -2,8 +2,6 @@ package test.java.com.hemebiotech.analytics;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,20 +10,20 @@ import org.junit.jupiter.api.Test;
 
 import main.java.com.hemebiotech.analytics.CountsSymptomOccurrences;
 
-class CountsSymptomOccurrencesTest {
-	String elementFever = "fever";
-	String elementCough = "cough";
-	String elementBlurredVision = "blurred vision";
+class CountsSymptomOccurrencesTest extends MethodsCommonToSymptoms {
 
+	// ---------------------------------------------------------------------------------
+	// ---------------------------------------------------------------------------------
+	// Counting of symptom occurrence numbers
+	// ---------------------------------------------------------------------------------
+	// ---------------------------------------------------------------------------------
+	// General case
 	@Test
 	void testGetListOfSymptomOccurrencesNormal() {
-		// Liste source
-		List<String> listOfSourceSymptoms = Arrays.asList(elementFever, elementCough, elementCough, elementBlurredVision, elementFever);
-		// Liste destination
-		Map<String, Integer> listOfDestinationSymptoms = new HashMap<>();
-		listOfDestinationSymptoms.put(elementFever, 2);
-		listOfDestinationSymptoms.put(elementCough, 2);
-		listOfDestinationSymptoms.put(elementBlurredVision, 1);
+		// Source list
+		List<String> listOfSourceSymptoms = getListOfSourceSymptomsNormal();
+		// Destination list
+		Map<String, Integer> listOfDestinationSymptoms = getListOfSymptomOccurrencesNormal();
 		
 		var treatsOccurrencesOfSymptoms = new CountsSymptomOccurrences();
 		Map<String, Integer> listOfResultSymptoms = treatsOccurrencesOfSymptoms.getListOfSymptomOccurrences(listOfSourceSymptoms);
@@ -33,30 +31,33 @@ class CountsSymptomOccurrencesTest {
 		Assert.assertEquals(listOfDestinationSymptoms, listOfResultSymptoms);
 	}
 
+	// Borderline cases : Empty list
 	@Test
 	void testGetListOfSymptomOccurrencesEmpty() {
-		// Liste source
-		List<String> listOfSourceSymptoms = Arrays.asList();
-		// Liste destination
-		Map<String, Integer> listOfDestinationSymptoms = new HashMap<>();
+		// Source list
+		List<String> listOfSourceSymptoms = getListOfSourceSymptomsEmpty();
+		// Destination list
+		Map<String, Integer> listOfDestinationSymptoms = getListOfSymptomOccurrencesEmpty();
 		
 		var treatsOccurrencesOfSymptoms = new CountsSymptomOccurrences();
 		Map<String, Integer> listOfResultSymptoms = treatsOccurrencesOfSymptoms.getListOfSymptomOccurrences(listOfSourceSymptoms);
 		
 		Assert.assertEquals(listOfDestinationSymptoms, listOfResultSymptoms);
 	}
+	
 
+	// ---------------------------------------------------------------------------------
+	// ---------------------------------------------------------------------------------
+	// Generating the list of symptom occurrence numbers to write
+	// ---------------------------------------------------------------------------------
+	// ---------------------------------------------------------------------------------
+	// General case
 	@Test
 	void testGetListOfWrittenSymptomsNormal() {
-		// Liste source
-		Map<String, Integer> listOfSourceSymptoms = new HashMap<>();
-		listOfSourceSymptoms.put(elementFever, 2);
-		listOfSourceSymptoms.put(elementCough, 2);
-		listOfSourceSymptoms.put(elementBlurredVision, 1);
-		// Liste destination
-		List<String> listOfDestinationSymptoms = Arrays.asList(elementFever + " : 2"
-						, elementCough + " : 2"
-						, elementBlurredVision + " : 1");
+		// Source list
+		Map<String, Integer> listOfSourceSymptoms = getListOfSymptomOccurrencesNormal();
+		// Destination list
+		List<String> listOfDestinationSymptoms = getListOfWrittenSymptomsNormal();
 		
 		var treatsOccurrencesOfSymptoms = new CountsSymptomOccurrences();
 		List<String> listOfResultSymptoms = treatsOccurrencesOfSymptoms.getListOfWrittenSymptoms(listOfSourceSymptoms);
@@ -64,17 +65,17 @@ class CountsSymptomOccurrencesTest {
 		Assert.assertEquals(listOfDestinationSymptoms, listOfResultSymptoms);
 	}
 
+	// Borderline cases : Empty list
 	@Test
 	void testGetListOfWrittenSymptomsEmpty() {
-		// Liste source
-		Map<String, Integer> listOfSourceSymptoms = new HashMap<>();
-		// Liste destination
-		List<String> listOfDestinationSymptoms = Arrays.asList();
+		// Source list
+		Map<String, Integer> listOfSourceSymptoms = getListOfSymptomOccurrencesEmpty();
+		// Destination list
+		List<String> listOfDestinationSymptoms = getListOfWrittenSymptomsEmpty();
 		
 		var treatsOccurrencesOfSymptoms = new CountsSymptomOccurrences();
 		List<String> listOfResultSymptoms = treatsOccurrencesOfSymptoms.getListOfWrittenSymptoms(listOfSourceSymptoms);
 		
 		Assert.assertEquals(listOfDestinationSymptoms, listOfResultSymptoms);
 	}
-
 }

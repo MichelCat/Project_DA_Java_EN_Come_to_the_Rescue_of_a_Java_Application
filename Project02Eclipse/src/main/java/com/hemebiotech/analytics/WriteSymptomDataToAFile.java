@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Simple brute force implementation
+ * Simple writer implementation based on file system 
  *
  * @see ISymptomWriter
  * @see ReadSymptomDataFromFile
@@ -25,6 +25,9 @@ public class WriteSymptomDataToAFile implements ISymptomWriter {
 		this.filepath = filepath;
 	}
 
+	/**
+	 * Write sympton in file
+	 */
 	@Override
 	public void setSymptoms(List<String> listWriter) {
 		try (var writer = new FileWriter (filepath)) {
