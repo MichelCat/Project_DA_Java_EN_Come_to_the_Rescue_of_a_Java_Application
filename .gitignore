@@ -96,4 +96,8 @@ hs_err_pid*
 # JavaDoc
 doc/
 
+# Work files
+Project02Eclipse/src/main/resources/work/*
+Project02Eclipse/src/test/resources/work/*
+
 # End of https://www.toptal.com/developers/gitignore/api/eclipse,java

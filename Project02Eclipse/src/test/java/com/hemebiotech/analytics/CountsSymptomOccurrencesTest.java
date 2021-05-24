@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import main.java.com.hemebiotech.analytics.CountsSymptomOccurrences;
 
-class CountsSymptomOccurrencesTest extends MethodsCommonToSymptoms {
+class CountsSymptomOccurrencesTest extends SymptomAbstractTest {
 
 	// ---------------------------------------------------------------------------------
 	// ---------------------------------------------------------------------------------

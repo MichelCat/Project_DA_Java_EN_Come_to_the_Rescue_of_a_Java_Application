@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import main.java.com.hemebiotech.analytics.WriteSymptomDataToAFile;
 
-class WriteSymptomDataToAFileTest extends MethodsCommonToSymptoms {
+class WriteSymptomDataToAFileTest extends SymptomAbstractTest {
 	String resultFile = workDirectory + "resultFile.txt";
 	String destinationFile = referencesDirectory + "destinationFile.txt";
 

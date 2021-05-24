@@ -5,15 +5,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public abstract class MethodsCommonToSymptoms {
+public abstract class SymptomAbstractTest {
 	// Symptom list
-	protected String elementFever = "fever";
-	protected String elementCough = "cough";
-	protected String elementBlurredVision = "blurred vision";
+	protected static String elementFever = "fever";
+	protected static String elementCough = "cough";
+	protected static String elementBlurredVision = "blurred vision";
 	
 	// Ressource directories
-	protected String referencesDirectory = "src/test/resources/references/";
-	protected String workDirectory = "src/test/resources/work/";
+	protected static String referencesDirectory = "src/test/resources/references/";
+	protected static String workDirectory = "src/test/resources/work/";
 
 	// ---------------------------------------------------------------------------------
 	// ---------------------------------------------------------------------------------
