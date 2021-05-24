@@ -100,4 +100,7 @@ doc/
 Project02Eclipse/src/main/resources/work/*
 Project02Eclipse/src/test/resources/work/*
 
+# Empty file
+!.gitkeep
+
 # End of https://www.toptal.com/developers/gitignore/api/eclipse,java
