@@ -1,5 +1,6 @@
 package main.java.com.hemebiotech.analytics;
 
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
@@ -29,14 +30,21 @@ public class WriteSymptomDataToAFile implements ISymptomWriter {
 	 * Write sympton in file
 	 */
 	@Override
-	public void setSymptoms(List<String> listWriter) {
+	public int setSymptoms(List<String> listWriter) {
 		try (var writer = new FileWriter (filepath)) {
 			for (String line : listWriter) {
 				writer.write(line + "\n");
 			}
+		} catch(FileNotFoundException e) {
+			System.out.println("File not found " + e.toString());
+			return -1;
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("File write problem " + e.toString());
+			return -2;
+		} catch(Exception e) {
+			System.out.println("Other exception " + e.toString());
+			return -3;
 		}
+		return 0;
 	}
-	
 }

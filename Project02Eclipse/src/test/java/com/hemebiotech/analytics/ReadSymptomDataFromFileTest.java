@@ -28,4 +28,28 @@ class ReadSymptomDataFromFileTest extends SymptomAbstractTest {
 		
 		Assert.assertEquals(listOfDestinationSymptoms, listOfResultSymptoms);
 	}
+	
+	// Borderline cases : Empty filename
+	@Test
+	void testGetSymptomsEmpty() {
+		// Destination list
+		List<String> listOfDestinationSymptoms = getListOfSourceSymptomsEmpty();
+		
+		var readingSourceSymptoms = new ReadSymptomDataFromFile("");
+		List<String> listOfResultSymptoms = readingSourceSymptoms.getSymptoms();
+		
+		Assert.assertEquals(listOfDestinationSymptoms, listOfResultSymptoms);
+	}
+	
+	// Borderline cases : Null filename
+	@Test
+	void testGetSymptomsNull() {
+		// Destination list
+		List<String> listOfDestinationSymptoms = getListOfSourceSymptomsEmpty();
+		
+		var readingSourceSymptoms = new ReadSymptomDataFromFile(null);
+		List<String> listOfResultSymptoms = readingSourceSymptoms.getSymptoms();
+		
+		Assert.assertEquals(listOfDestinationSymptoms, listOfResultSymptoms);
+	}
 }

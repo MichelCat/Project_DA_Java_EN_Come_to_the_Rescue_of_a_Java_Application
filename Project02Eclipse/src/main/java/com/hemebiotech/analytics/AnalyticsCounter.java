@@ -9,18 +9,21 @@ import java.util.Map;
  * @version 1.0
  */
 public class AnalyticsCounter {
+	// Ressource directories
+	protected static String referencesDirectory = "src/main/resources/references/";
+	protected static String workDirectory = "src/main/resources/work/";
+	// Ressource files
+	protected static String sourceFile = "symptoms.txt";
+	protected static String destinationFile = "result.out";
+
 	
 	/**
 	 * Main method
 	 * @param args Unused
 	 */
 	public static void main(String[] args) {
-		// Ressource directories
-		var referencesDirectory = "src/main/resources/references/";
-		var workDirectory = "src/main/resources/work/";
-		
 		// Reading Symptoms From Source File
-		var readingSourceSymptoms = new ReadSymptomDataFromFile(referencesDirectory + "symptoms.txt");
+		var readingSourceSymptoms = new ReadSymptomDataFromFile(referencesDirectory + sourceFile);
 		List<String> listOfSourceSymptoms = readingSourceSymptoms.getSymptoms();
 		
 		var treatsOccurrencesOfSymptoms = new CountsSymptomOccurrences();
@@ -30,7 +33,7 @@ public class AnalyticsCounter {
 		List<String> listOfDestinationSymptoms = treatsOccurrencesOfSymptoms.getListOfWrittenSymptoms(listOfSymptomOccurrences);
 		
 		// Writing symptoms in the result file
-		var writingDestinationSymptoms = new WriteSymptomDataToAFile(workDirectory + "result.out");
+		var writingDestinationSymptoms = new WriteSymptomDataToAFile(workDirectory + destinationFile);
 		writingDestinationSymptoms.setSymptoms(listOfDestinationSymptoms);
 		
 		// End

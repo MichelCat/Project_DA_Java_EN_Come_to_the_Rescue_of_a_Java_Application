@@ -20,5 +20,5 @@ public interface ISymptomWriter {
 	 * <p> Post-condition : If no data is available, no symtom will be written</p>
 	 * @param listWriter List of symptoms with number of occurrences
 	 */
-	void setSymptoms(List<String> listWriter);
+	int setSymptoms(List<String> listWriter);
 }

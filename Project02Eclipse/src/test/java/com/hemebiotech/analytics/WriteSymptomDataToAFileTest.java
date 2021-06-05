@@ -30,10 +30,33 @@ class WriteSymptomDataToAFileTest extends SymptomAbstractTest {
 		java.nio.file.Files.deleteIfExists(resultFilePath);
 		
 		var writingDestinationSymptoms = new WriteSymptomDataToAFile(resultFile);
-		writingDestinationSymptoms.setSymptoms(listOfSourceSymptoms);
+		int returnCode = writingDestinationSymptoms.setSymptoms(listOfSourceSymptoms);
+		Assert.assertEquals(0, returnCode);
 		
 		// Test result file with reference file
 		var destinationReferenceFilePath = Paths.get(destinationFile);
 		Assert.assertEquals(Files.readString(destinationReferenceFilePath), Files.readString(resultFilePath));
+	}
+	
+	// Borderline cases : Empty filename
+	@Test
+	void testSetSymptomsEmpty() {
+		// Source list
+		List<String> listOfSourceSymptoms = getListOfWrittenSymptomsNormal();
+		
+		var writingDestinationSymptoms = new WriteSymptomDataToAFile("");
+		int returnCode = writingDestinationSymptoms.setSymptoms(listOfSourceSymptoms);
+		Assert.assertEquals(-1, returnCode);
+	}
+	
+	// Borderline cases : Null filename
+	@Test
+	void testSetSymptomsNull() {
+		// Source list
+		List<String> listOfSourceSymptoms = getListOfWrittenSymptomsNormal();
+		
+		var writingDestinationSymptoms = new WriteSymptomDataToAFile(null);
+		int returnCode = writingDestinationSymptoms.setSymptoms(listOfSourceSymptoms);
+		Assert.assertEquals(-3, returnCode);
 	}
 }
