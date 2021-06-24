@@ -1,4 +1,4 @@
-package main.java.com.hemebiotech.analytics;
+package com.hemebiotech.analytics;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

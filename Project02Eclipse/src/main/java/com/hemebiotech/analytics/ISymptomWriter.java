@@ -1,4 +1,4 @@
-package main.java.com.hemebiotech.analytics;
+package com.hemebiotech.analytics;
 
 import java.util.List;
 
@@ -19,6 +19,8 @@ public interface ISymptomWriter {
 	 * Write the result list
 	 * <p> Post-condition : If no data is available, no symtom will be written</p>
 	 * @param listWriter List of symptoms with number of occurrences
+	 * @return Return code
+	 *			0  : Normal running
 	 */
 	int setSymptoms(List<String> listWriter);
 }

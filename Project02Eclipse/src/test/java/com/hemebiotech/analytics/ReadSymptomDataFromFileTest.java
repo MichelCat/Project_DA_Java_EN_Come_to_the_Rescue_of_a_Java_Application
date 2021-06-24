@@ -1,4 +1,4 @@
-package test.java.com.hemebiotech.analytics;
+package com.hemebiotech.analytics;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -6,8 +6,6 @@ import java.util.List;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
-
-import main.java.com.hemebiotech.analytics.ReadSymptomDataFromFile;
 
 class ReadSymptomDataFromFileTest extends SymptomAbstractTest {
 	private static String sourceFile = referencesDirectory + "sourceFile.txt";

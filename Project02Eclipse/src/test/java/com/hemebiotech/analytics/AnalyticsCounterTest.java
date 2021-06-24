@@ -1,15 +1,14 @@
-package test.java.com.hemebiotech.analytics;
+package com.hemebiotech.analytics;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
 import org.junit.Assert;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import main.java.com.hemebiotech.analytics.AnalyticsCounter;
-
-class AnalyticsCounterTest extends AnalyticsCounter {
+class AnalyticsCounterTest {
 	// Test files
 	private static String mainDestinationFile = "mainDestinationFile.txt";
 	
@@ -20,23 +19,26 @@ class AnalyticsCounterTest extends AnalyticsCounter {
 	// ---------------------------------------------------------------------------------
 	// ---------------------------------------------------------------------------------
 	// General case
+	@BeforeAll
+	static void setup() {
+		// Ressource directories
+		AnalyticsCounter.referencesDirectory = "src/test/resources/references/";
+		AnalyticsCounter.workDirectory = "src/test/resources/work/";
+		// Ressource files
+		AnalyticsCounter.sourceFile = "mainSourceFile.txt";
+		AnalyticsCounter.destinationFile = "mainResultFile.txt";
+	}
+	
 	@Test
 	void testMainNormal() throws IOException {
-		// Ressource directories
-		referencesDirectory = "src/test/resources/references/";
-		workDirectory = "src/test/resources/work/";
-		// Ressource files
-		sourceFile = "mainSourceFile.txt";
-		destinationFile = "mainResultFile.txt";
-		
 		// Deletion of the old result file
-		var resultFilePath = Paths.get(workDirectory + destinationFile);
+		var resultFilePath = Paths.get(AnalyticsCounter.workDirectory + AnalyticsCounter.destinationFile);
 		java.nio.file.Files.deleteIfExists(resultFilePath);
 		
-		main(null);
+		AnalyticsCounter.main(null);
 		
 		// Test result file with reference file
-		var destinationReferenceFilePath = Paths.get(referencesDirectory + mainDestinationFile);
+		var destinationReferenceFilePath = Paths.get(AnalyticsCounter.referencesDirectory + mainDestinationFile);
 		Assert.assertEquals(Files.readString(destinationReferenceFilePath), Files.readString(resultFilePath));
 	}
 

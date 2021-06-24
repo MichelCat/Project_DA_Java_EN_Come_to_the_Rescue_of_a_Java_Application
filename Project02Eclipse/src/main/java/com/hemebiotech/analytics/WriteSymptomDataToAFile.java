@@ -1,4 +1,4 @@
-package main.java.com.hemebiotech.analytics;
+package com.hemebiotech.analytics;
 
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -28,6 +28,13 @@ public class WriteSymptomDataToAFile implements ISymptomWriter {
 
 	/**
 	 * Write sympton in file
+	 * <p> Post-condition : If no data is available, no symtom will be written</p>
+	 * @param listWriter List of symptoms with number of occurrences
+	 * @return Return code
+	 *			0  : Normal running
+	 *			-1 : File not found
+	 *			-2 : File write problem
+	 *			-3 : Other exception
 	 */
 	@Override
 	public int setSymptoms(List<String> listWriter) {

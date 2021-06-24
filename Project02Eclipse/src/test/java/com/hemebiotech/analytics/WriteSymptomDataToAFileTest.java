@@ -1,4 +1,4 @@
-package test.java.com.hemebiotech.analytics;
+package com.hemebiotech.analytics;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -7,8 +7,6 @@ import java.util.List;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
-
-import main.java.com.hemebiotech.analytics.WriteSymptomDataToAFile;
 
 class WriteSymptomDataToAFileTest extends SymptomAbstractTest {
 	private static String resultFile = workDirectory + "resultFile.txt";
