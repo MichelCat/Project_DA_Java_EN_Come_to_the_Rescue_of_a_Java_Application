@@ -1,6 +1,7 @@
 package main.java.com.hemebiotech.analytics;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,17 +34,19 @@ public class CountsSymptomOccurrences {
 	
 	
 	/**
-	 * Generating the list of symptom occurrence numbers to write
+	 * Generating the sort list of symptom occurrence numbers to write
 	 * <p> Pre-condition : List of symptoms with number of occurrences (name symptom, number of occurrences)</p>
-	 * <p> Post-condition : List of labels to write (name symptom + " : " + number of occurrences)</p>
+	 * <p> Post-condition : Sort list of labels to write (name symptom + " : " + number of occurrences)</p>
 	 * @param listOfSymptomOccurrences List of symptoms with number of occurrences
-	 * @return List of labels to write
+	 * @return Sort list of labels to write
 	 */
 	public List<String> getListOfWrittenSymptoms(Map<String, Integer> listOfSymptomOccurrences) {
 		List<String> listOfDestinationSymptoms = new ArrayList<>();
 		for (Map.Entry<String, Integer> elem : listOfSymptomOccurrences.entrySet()) {
 			listOfDestinationSymptoms.add(elem.getKey() + " : " + elem.getValue());
 		}
+		// Sort list
+		Collections.sort(listOfDestinationSymptoms);
 		return listOfDestinationSymptoms;
 	}
 }
