@@ -58,9 +58,9 @@ public abstract class SymptomAbstractTest {
 	// ---------------------------------------------------------------------------------
 	// General case
 	protected List<String> getListOfWrittenSymptomsNormal() {
-		return Arrays.asList(elementFever + " : 2"
+		return Arrays.asList(elementBlurredVision + " : 1"
 				, elementCough + " : 2"
-				, elementBlurredVision + " : 1");
+				, elementFever + " : 2");
 	}
 	
 	// Borderline cases : Empty list

@@ -1,3 +1,3 @@
-fever : 2
-cough : 2
 blurred vision : 1
+cough : 2
+fever : 2
